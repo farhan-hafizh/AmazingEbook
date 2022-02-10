@@ -1,7 +1,7 @@
 
 .title{
     color: white;
-    background-color: #0d6efd;
+    background-color: rgb(91, 118, 206);
     text-align: center;
 }
 .title .top{
@@ -14,4 +14,26 @@
     background-color: gray;
     font-weight: bold;
     
+}
+.block {
+    border: 1px solid red;
+    text-align: center;
+    vertical-align: middle;
+}
+.circle {
+    border-radius: 200px;
+    color: rgb(91, 118, 206);
+    height: 400px;
+    font-weight: bold;
+    width: 400px;
+    display: table;
+    margin: 20px auto;
+    border-style: solid;
+    border-width: thick;
+}
+.circle p {
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    font-size: large;
 }

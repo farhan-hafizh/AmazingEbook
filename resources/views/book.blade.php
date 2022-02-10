@@ -9,5 +9,8 @@
             <p>Description</p>
             <p>{{ $books->description }}</p>
         </div>     
-    </table>
+        <div class="d-flex flex-row-reverse">
+            <a href="/rent/{{$books->id}}" class="btn btn-warning">Rent</a>
+        </div>
+    
 @endsection

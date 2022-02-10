@@ -30,6 +30,9 @@
         </div>
     </div>
     @else
-        <h1>Find And Rent Your E-book Here!</h1>
+            <div class="circle">
+                <p>Find and Rent book here!</p>
+            </div>
+        
     @endif
 @endsection

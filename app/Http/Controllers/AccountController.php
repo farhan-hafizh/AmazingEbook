@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class AccountController extends Controller
 {
     public function index(){
-        return view('contact',[
-            'title' => 'Help',
+        return view('account',[
+            'title' => 'Account Maintanance',
             'categories' => Category::all()
         ]);
     }

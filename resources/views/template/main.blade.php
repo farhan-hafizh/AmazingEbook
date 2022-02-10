@@ -11,7 +11,7 @@
     <title>Amazing Book Store || {{ $title }}</title>
   </head>
   <body>
-      <main>
+      <main style="margin-bottom: 100px">
         @if (Auth::check())
         @include('template.navbar')
       @else
