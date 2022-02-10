@@ -1,0 +1,17 @@
+
+.title{
+    color: white;
+    background-color: #0d6efd;
+    text-align: center;
+}
+.title .top{
+    height: 150px;
+}
+.sub-title{
+    background-color: tomato;
+}
+.table-title{
+    background-color: gray;
+    font-weight: bold;
+    
+}
