@@ -13,7 +13,7 @@
                 </thead>
             @foreach ($rent as $item)
             <tr>
-                <th scope="row">{{$loop->index}}</th>
+                <th scope="row">{{$loop->index+1}}</th>
                 <td>
                     [{{$item->book[0]->title}}]    
                 </td>

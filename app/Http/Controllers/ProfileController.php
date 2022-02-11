@@ -20,25 +20,31 @@ class ProfileController extends Controller
     }
     public function edit(Request $request){
         $user=Auth::user();
-        
-        $user->firstname=$request->input('firstname');
-        $user->middlename=$request->input('middlename');
-        $user->lastname=$request->input('lastname');
-        $user->email=$request->input('email');
-        $user->gender=$request->input('gender');
-        $user->email=$request->input('email');
+        $rules=[
+            'firstname'=>'required|alpha|max:25',
+            'middlename'=>'nullable|alpha|max:25',
+            'lastname'=>'required|alpha|max:25',
+            'email'=>'required|email',
+            'gender'=>'required',
+            'password'=> 'required|min:8|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/',
+            'picture'=>'required|image'
+        ];
+        $validated=$request->validate($rules);
+        $user->firstname=$validated['firstname'];
+        if($validated['middlename']!=null)
+            $user->middlename=$validated['middlename'];
+        $user->lastname=$validated['lastname'];
+        $user->email=$validated['email'];
+        $user->gender=$validated['gender'];
+        $user->email=$validated['email'];
+        $user->password=bcrypt($validated['password']);
 
-        if($request->input('password')!=null)
-            $user->password=bcrypt($request->input('password'));
-
-        if($request->file('picture')!=null){
-            unlink(public_path("profile/img/".$user->picture));
-            $picture=$request->file('picture');
-            $pictureName=time()."_".$picture->getClientOriginalName();
+        unlink(public_path("profile/img/".$user->picture));
+        $picture=$request->file('picture');
+        $pictureName=time()."_".$picture->getClientOriginalName();
     
-            $picture->move(public_path('profile/img'), $pictureName);
-            $user->picture=$pictureName;
-        }
+        $picture->move(public_path('profile/img'), $pictureName);
+        $user->picture=$pictureName;
         $user->save();
         return back();
     }

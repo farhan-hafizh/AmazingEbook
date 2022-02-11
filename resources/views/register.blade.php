@@ -5,9 +5,9 @@
     @csrf
     <div>
         First Name
-        <input class="form-control" type="text" name="firstname" value="{{ old('fisrtname') }}">
+        <input class="form-control" type="text" name="firstname" value="{{ old('firstname') }}">
         @error('firstname')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -15,8 +15,8 @@
     <div>
         Middle Name
         <input class="form-control"  type="text" name="middlename" value="{{ old('middlename') }}">
-        @error('middlename')
-        <div class="invalid-feedback">
+      @error('middlename')
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -25,7 +25,7 @@
         Last Name
         <input class="form-control"  type="text" name="lastname" value="{{ old('lastname') }}">
         @error('lastname')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -34,7 +34,7 @@
         Email
         <input class="form-control"  type="email" name="email" value="{{ old('email') }}">
         @error('email')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -44,7 +44,7 @@
         <label><input name="gender" type="radio" value="male">male </label>
         <label><input name="gender" type="radio" value="female">female</label>
         @error('gender')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -56,7 +56,7 @@
             <option value="user">User</option>
         </select>
         @error('role')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -65,7 +65,7 @@
         Password
         <input class="form-control"  type="password" name="password">
         @error('password')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror
@@ -74,7 +74,7 @@
         Display Picture
         <input class="form-control"  type="file" name="picture">
         @error('picture')
-        <div class="invalid-feedback">
+        <div class="text-danger">
           {{ $message }}
         </div>
     @enderror

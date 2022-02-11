@@ -12,7 +12,7 @@
                   First Name
                   <input class="form-control" type="text" name="firstname" value="{{ $user->firstname }}">
                   @error('firstname')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror
@@ -21,7 +21,7 @@
                   Middle Name
                   <input class="form-control"  type="text" name="middlename" value="{{ $user->middlename }}">
                   @error('middlename')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror
@@ -30,7 +30,7 @@
                   Last Name
                   <input class="form-control"  type="text" name="lastname" value="{{ $user->lastname }}">
                   @error('lastname')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror
@@ -39,7 +39,7 @@
                   Email
                   <input class="form-control"  type="email" name="email" value="{{ $user->email }}">
                   @error('email')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror
@@ -49,7 +49,7 @@
                   <label><input name="gender" type="radio" value="male" {{ ($user->gender=="male")? "checked" : "" }}> Male </label>
                   <label><input name="gender" type="radio" value="female" {{ ($user->gender=="female")? "checked" : "" }}> Female</label>
                   @error('gender')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror
@@ -61,7 +61,7 @@
                       <option value="user" {{ ($user->role=="user")? "selected" : "" }}>User</option>
                   </select>
                   @error('role')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror
@@ -70,16 +70,16 @@
                   Password
                   <input class="form-control"  type="password" name="password">
                   @error('password')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
-              @enderror
-              </div>
+                  @enderror
+                </div>
               <div>
                   Display Picture
                   <input class="form-control"  type="file" name="picture">
                   @error('picture')
-                  <div class="invalid-feedback">
+                  <div class="text-danger">
                     {{ $message }}
                   </div>
               @enderror

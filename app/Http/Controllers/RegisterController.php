@@ -14,18 +14,14 @@ class RegisterController extends Controller
     }
     public function register(Request $request){
         $rules=[
-            'firstname'=>'required',
-            'middlename'=>'required',
-            'lastname'=>'required',
+            'firstname'=>'required|alpha|max:25',
+            'middlename'=>'nullable|alpha|max:25',
+            'lastname'=>'required|alpha|max:25',
             'email'=>'required|email',
             'gender'=>'required',
-            'role'=>'required',
-            'password'=> 'required',
+            'password'=> 'required|min:8|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/',
             'picture'=>'required|image'
         ];
-
-        // $request->picture=$pictureName;
-        // dd($request);
         $validated=$request->validate($rules);
         $picture=$request->file('picture');
         $pictureName=time()."_".$picture->getClientOriginalName();

@@ -37,14 +37,17 @@ Route::get('/success', function(){
         'categories' => Category::all()
     ]);
 });
-
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');//tell laravel it's login
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-
 Route::get('/rent/{book}', [RentController::class, 'rent'])->middleware('auth');
-Route::delete('/rent/{id}', [RentController::class,'delete'])->name('rent.delete');
-Route::post('/rent/submit', [RentController::class,'submit'])->name('rent.submit');
+Route::get('/update/role/{user}', [AccountController::class, 'displayUpdate'])->middleware('auth');
 
+Route::delete('/rent/{id}', [RentController::class,'delete'])->name('rent.delete');
+Route::delete('/account/{id}', [AccountController::class,'delete'])->name('account.delete');
+
+Route::patch('/account/{id}', [AccountController::class,'edit'])->name('account.update');
+
+Route::post('/rent/submit', [RentController::class,'submit'])->name('rent.submit');
 Route::post('/auth/register',[RegisterController::class,'register']);   
 Route::post('/auth/login',[LoginController::class,'login']); 
 Route::post('/auth/logout',[LoginController::class,'logout']);   
