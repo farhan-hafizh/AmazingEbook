@@ -36,7 +36,7 @@ Route::get('/success', function(){
         'title' => "Success",
         'categories' => Category::all()
     ]);
-});
+})->middleware('auth');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');//tell laravel it's login
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::get('/rent/{book}', [RentController::class, 'rent'])->middleware('auth');
